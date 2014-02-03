@@ -1,0 +1,104 @@
+        <ul>
+            <li id="sc"><a href="#" class="toplevel" load="default"><img src="img/sc-logo.png" /></a></li>
+            <li><a href="#" id="equipment" class="">How We Do It</a>
+                <ul class="secondary" id="equipsub">
+                    <li><strong>Our Tools &amp; Equipment:</strong></li>
+                    <li><a href="#" load="bike-content">Bikes</a></li>
+                    <li><a href="#" load="hockey-content">Hockey</a></li>
+                    <li><a href="#" load="snow-content">Snow Sports</a></li>
+                    <li><a href="#" load="racquet-content">Racquets</a></li>
+                    <li><a href="#" load="golf-content">Golf</a></li>
+                </ul>
+            </li>
+            <li><a href="#" id="services" class="">Our Services</a>
+                <ul class="secondary" id="servicesub">
+                    <li><strong>Our Services:</strong></li> 
+                    <li><a href="#" load="bike-service">Bikes</a></li>
+                    <li><a href="#" load="hockey-service">Hockey</a></li>
+                    <li><a href="#" load="snow-service">Snow Sports</a></li>
+                    <li><a href="#" load="racquet-service">Racquet Sports</a></li>
+                    <li><a href="#" load="golf-service">Golf</a></li>                      
+                </ul>
+            </li>
+            <li><a href="#" id="pricing" load="pricing" class="toplevel">Pricing</a></li>
+            <li><a href="#" id="book-service" load="booking" class="toplevel">Book Your Service</a></li>
+        </ul>
+        <script type="text/javascript">
+        $('a.toplevel').click(function() {
+            //alert( $(this).attr('load') );
+            $('#stage').load('includes/' + $(this).attr('load') + '.html');
+        });
+
+        $('ul.secondary a').click(function() {
+            //alert( $(this).attr('load') );
+            $('#stage').load('includes/' + $(this).attr('load') + '.html');
+        });
+
+
+
+
+
+
+        $("#equipment").click(function() {
+
+            if($("#servicesub").is(":hidden")){
+                $('#equipsub').slideToggle();    
+            } else {
+                $('#servicesub').slideToggle();
+                $('#equipsub').slideToggle();     
+            }
+
+            $(this).addClass("active");
+            $('#services').removeClass("active");  
+            $('#pricing').removeClass("active");   
+            $('#book-service').removeClass("active");         
+        });
+
+        $("#services").click(function() {
+
+            if($("#equipsub").is(":hidden")){
+                $('#servicesub').slideToggle();    
+            } else {
+                $('#equipsub').slideToggle();
+                $('#servicesub').slideToggle();     
+            }   
+
+            $(this).addClass("active");
+            $('#equipment').removeClass("active");
+            $('#pricing').removeClass("active");    
+            $('#book-service').removeClass("active");         
+
+        });
+
+        $("#pricing").click(function() {
+            $('#equipsub').hide();
+            $('#servicesub').hide(); 
+
+            $(this).addClass("active");
+            $('#book-service').removeClass("active");
+            $('#equipment').removeClass("active");
+            $('#services').removeClass("active");       
+
+        });
+
+        $("#book-service").click(function() {
+            $(this).addClass("active");
+
+            $('#equipsub').hide();
+            $('#servicesub').hide(); 
+
+            $('#pricing').removeClass("active");
+            $('#equipment').removeClass("active");
+            $('#services').removeClass("active");       
+        });
+
+        $("#sc").click(function() {
+            $('#equipsub').hide();
+            $('#servicesub').hide(); 
+
+            $('#pricing').removeClass("active");
+            $('#equipment').removeClass("active");
+            $('#services').removeClass("active");  
+            $('#book-service').removeClass("active");              
+        });
+        </script>
